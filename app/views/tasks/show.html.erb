@@ -1,0 +1,31 @@
+<div class="container my-12 mx-auto text-3xl px-4 md:px-12">
+  <div class="flex justify-evenly items-center rounded overflow-hidden shadow-lg  p-5 " style=" height:65vh; background-image:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6));">
+    <div class="text-yellow-400 font-bold">
+      <h1>Title:</h1>
+      <h1>Description:</h1>
+      <h1>Deadline:</h1>
+      <h1>Status</h1>
+    </div>
+    <div class="">
+      <h1><%=@task.name%></h1>
+      <h1><%=@task.description%></h1>
+      <h1><%=@task.deadline.strftime("%A %b %e, %Y ")%></h1>
+      <%if @task.completed? %>
+        <p class="text-green-500"> Completed </p>
+          <% else %>
+            <% if @task.deadline.today? %>
+              <p class="text-yellow-500">Due Today!</p>
+            <% elsif @task.deadline.past?%>
+              <p class="text-red-500">Overdue!</p>
+            <% elsif @task.deadline.future?%>
+              <p class="text-blue-500">Pending</p>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="">
+      <%= link_to journals_tasks_path do %><button class="fas fa-eye inline-block bg-blue-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> See all tasks</button><% end %>
+      <%= link_to journals_tasks_edit_path do %><button class="fas fa-edit inline-block bg-yellow-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> Edit</button><% end %>
+      <%= link_to journals_tasks_delete_path , method: :delete, data: { confirm: "are you sure? you want to delete #{@task.name}" } do %><button class="fas fa-trash inline-block bg-red-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> Delete</button><% end %>
+    </div>
+  </div>
+</div>

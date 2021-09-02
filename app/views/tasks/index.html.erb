@@ -1,0 +1,72 @@
+  <div class="max-w-7xl mx-auto ">
+  
+    <div class=" container my-12 mx-auto px-4 md:px-12 grid grid-cols-1 sm:grid-cols-1  gap-5" >
+      <div class="flex justify-between rounded  text-3xl font-bold py-6 px-4 sm:px-6 lg:px-8 text-white-400 " style="background-image:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6));">
+        <h1 class="text-yellow-400 "><%= @journal.name.capitalize%> Journal</h1>
+         <div><%= link_to journals_tasks_new_path(@journal.id) do %><button class="fas fa-plus bg-yellow-600 hover:bg-yellow-400 text-sm text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"> Add Tasks</button>  <% end %></div>
+      </div>
+    </div>
+    
+  <% if @tasks.length > 0 %>
+          
+    <div class="container my-12 mx-auto px-4 md:px-12 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3  xl:grid-cols-3 gap-5">
+
+      <% @tasks.each do |task|%>
+        <div class="rounded overflow-hidden shadow-lg " style="background-image:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6));">
+          <div class="px-6 py-4">
+            <div style="float:right;">
+             <%#= raw task_label(task)[:html] %> <%#= link_to "tasks/#{task.id}", method: :delete, data: { confirm: "are you sure? you want to delete #{task.name}" } do %>
+            <%= link_to journals_tasks_delete_path(task.journal_id, task.id), method: :delete, data: { confirm: "are you sure?" } do %><button class="ml-3 fas fa-times text-red-700"> </button><% end %>
+            <%# end %>
+            </div>
+            <div style="float:right;">
+              <%if task.completed? %>
+                <p class="text-green-500"> Completed </p>
+              <% else %>
+
+                <% if task.deadline.today? %>
+                  <p class="text-yellow-500">Due Today!</p>
+                <% elsif task.deadline.past?%>
+                  <p class="text-red-500">Overdue!</p>
+                <% elsif task.deadline.future?%>
+                  <p class="text-blue-500">Pending</p>
+                <% end %>
+
+              <% end %>
+              
+            </div>
+            <div class="font-bold text-xl mb-2 text-yellow-400"><%#=task.name%> <%=task.name%></div>
+              <p class="text-gray-700 text-base mt-5">
+                <%=task.description%>
+              </p>
+              <br>
+              <h1>Deadline <%=task.deadline.strftime("%A %b %e, %Y ")%></h1>
+            </div>
+              <div class="px-6 pt-4 pb-2">
+              <%= link_to journals_tasks_complete_path(task.journal_id, task.id, task.completed ? '1' : '0') do %>
+                <button class="#{task.completed ? fas fa-check : fas fa-times}  inline-block bg-green-300 hover:bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> 
+                  <% if task.completed %>
+                  Unmark completed
+                  <% else %>
+                  Mark completed
+                  <% end %>
+                </button>
+              <% end %>
+              <%= link_to journals_tasks_show_path(@journal.id, task.id) do %><button class="fas fa-eye inline-block bg-blue-300 hover:bg-blue-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> View</button><% end %>
+              <%= link_to journals_tasks_update_path(@journal.id, task.id) do %><button class="fas fa-edit inline-block bg-yellow-300 hover:bg-yellow-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> Edit</button><% end %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+    <% else %>
+
+    <div class="container my-12 mx-auto px-4 md:px-12">
+      <div class="flex flex-col justify-center direction-column items-center rounded overflow-hidden shadow-lg  p-5 " style=" height:65vh; background-image:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6));">
+        <h1>No tasks found for this journal</h1>
+        <%= link_to "tasks/new"  do %><i class="mt-5 fas fa-plus bg-yelow-500 hover:bg-yelow-700 text-white font-bold py-2 px-4 rounded-full text-xl mr-5"> Add tasks now</i><% end %>
+      </div>
+    </div>
+
+  <% end %>
+</div>

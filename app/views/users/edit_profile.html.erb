@@ -1,0 +1,68 @@
+<div class="flex justify-center items-center" style='height:90vh;'>
+  <div class="w-full max-w-lg shadow-md rounded " style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7))">
+      <%= form_with :class => "px-8 pt-6 pb-8 mb-4", model: Current.user, url: profile_update_path, method: :patch, locale: true do |f| %>
+      <h1 class="mb-5 text-3xl text-yellow-500">Edit Profile</h1>
+      <div class="mb-4">
+        <%= f.label :Username, :class => "block text-gray-400 text-sm font-bold mb-2" %>
+        <%= f.text_field :username,  :class => "shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'Username', :required => true %>
+          <% Current.user.errors.full_messages_for(:username).each do |message| %>
+        <div class="text-red-900 font-bold"><%= message %></div>
+        <% end %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :Firstname, :class => "block text-gray-400 text-sm font-bold mb-2" %>
+        <%= f.text_field :firstname, :class => "shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'Firstname', :required => true %>
+        <% Current.user.errors.full_messages_for(:firstname).each do |message| %>
+          <div class="text-red-400 font-bold"><%= message %></div>
+        <% end %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :Lastname, :class => "block text-gray-400 text-sm font-bold mb-2" %>
+        <%= f.text_field :lastname, :class => "shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'Lastname', :required => true %>
+        <% Current.user.errors.full_messages_for(:lastname).each do |message| %>
+          <div class="text-red-400 font-bold"><%= message %></div>
+        <% end %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :Email, :class => "block text-gray-400 text-sm font-bold mb-2" %>
+        <%= f.email_field :email, :class => "shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'Email', :required => true , :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}'%>
+        <% Current.user.errors.full_messages_for(:email).each do |message| %>
+          <div class="text-red-400 font-bold"><%= message %></div>
+        <% end %>
+      </div>
+      
+      <br>
+      <div class="flex items-center justify-between">
+        <%= link_to 'Change Password', password_edit_path, :class => "text-center w-full bg-white hover:bg-white text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer" %>
+      </div>
+      <br>
+      <div class="flex items-center justify-between">
+        <%= f.submit "Save Changes", :class => "w-full bg-yellow-600 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer" %>
+      </div>
+      <br>
+    
+    <% end %>
+  </div>
+</div>
+
+ <div class="mb-6">
+        <%#= f.label :Current_Password, :class => "block text-gray-400 text-sm font-bold mb-2" %>
+        <%#= f.password_field :password, :class => "shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'Password', :required => true %>
+        <%# Current.user.errors.full_messages_for(:password).each do |message| %>
+          <div class="text-red-400 font-bold"><%#= message %></div>
+        <%# end %>
+      </div>
+      <div class="mb-6">
+        <%#= f.label :New_Password, :class => "block text-gray-400 text-sm font-bold mb-2" %>
+        <%#= f.password_field :password, :class => "shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'Password', :required => true %>
+        <%# Current.user.errors.full_messages_for(:password).each do |message| %>
+          <div class="text-red-400 font-bold"><%#= message %></div>
+        <%#end %>
+      </div>
+      <div class="mb-4">
+        <%#= f.label :Confirm_new_Password, :class => "block text-gray-400 text-sm font-bold mb-2" %>
+        <%#= f.password_field :password_confirmation, :class => "shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'PasswordConfirmation', :required => true %>
+        <%#Current.user.errors.full_messages_for(:password_confirmation).each do |message| %>
+          <div class="text-red-400 font-bold"><%#= message %></div>
+        <%# end %>
+      </div>

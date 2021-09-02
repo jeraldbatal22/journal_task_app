@@ -1,0 +1,57 @@
+<div class="flex justify-center items-center" style='height:90vh;'>
+  <div class="w-full max-w-lg shadow-md rounded " style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7))">
+      <%= form_with :class => "px-8 pt-6 pb-8 mb-4", model: @user, url: signup_path, locale: true do |f| %>
+      <div class="mb-4">
+        <%= f.label :Username, :class => "block text-gray-400 text-sm font-bold mb-2" %>
+        <%= f.text_field :username,  :class => "shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'Username', :required => true %>
+          <% @user.errors.full_messages_for(:username).each do |message| %>
+        <div class="text-red-900 font-bold"><%= message %></div>
+        <% end %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :Firstname, :class => "block text-gray-400 text-sm font-bold mb-2" %>
+        <%= f.text_field :firstname, :class => "shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'Firstname', :required => true %>
+        <% @user.errors.full_messages_for(:firstname).each do |message| %>
+          <div class="text-red-900 font-bold"><%= message %></div>
+        <% end %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :Lastname, :class => "block text-gray-400 text-sm font-bold mb-2" %>
+        <%= f.text_field :lastname, :class => "shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'Lastname', :required => true %>
+        <% @user.errors.full_messages_for(:lastname).each do |message| %>
+          <div class="text-red-900 font-bold"><%= message %></div>
+        <% end %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :Email, :class => "block text-gray-400 text-sm font-bold mb-2" %>
+        <%= f.email_field :email, :class => "shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'Email', :required => true , :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}'%>
+        <% @user.errors.full_messages_for(:email).each do |message| %>
+          <div class="text-red-900 font-bold"><%= message %></div>
+        <% end %>
+      </div>
+      <div class="mb-6">
+        <%= f.label :Password, :class => "block text-gray-400 text-sm font-bold mb-2" %>
+        <%= f.password_field :password, :class => "shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'Password', :required => true %>
+        <% @user.errors.full_messages_for(:password).each do |message| %>
+          <div class="text-red-900 font-bold"><%= message %></div>
+        <% end %>
+      </div>
+      <div class="mb-4">
+        <%= f.label :ConfirmPassword, :class => "block text-gray-400 text-sm font-bold mb-2" %>
+        <%= f.password_field :password_confirmation, :class => "shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'PasswordConfirmation', :required => true %>
+        <% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
+          <div class="text-red-900 font-bold"><%= message %></div>
+        <% end %>
+      </div>
+
+       <%= link_to '/signin' do %>
+        <div class="inline-block align-baseline font-bold text-sm mb-5 text-blue-900 hover:text-blue-400">
+          Do you have an account? 
+        </div>
+      <% end %>
+      <div class="flex items-center justify-between">
+        <%= f.submit "Submit", :class => "w-full bg-yellow-600 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer" %>
+      </div>
+    <% end %>
+  </div>
+</div>

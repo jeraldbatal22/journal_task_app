@@ -1,0 +1,38 @@
+<div class="flex justify-center items-center " style='height:90vh; '>
+  <div class="w-full max-w-lg shadow-md rounded" style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7))">
+      <%= form_with :class => "px-8 pt-6 pb-8 mb-4 ", url: signin_path do |f| %>
+      <div class="mb-4">
+        <%= f.label :Username, :class => "block  text-sm mb-2 text-gray-400 font-bold" %>
+        <%= f.text_field :username,  :class => "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'Username', :required => true %>
+      </div>
+      
+      <div class="mb-6">
+        <%= f.label :Password, :class => "block text-sm mb-2 text-gray-400 font-bold" %>
+        <%= f.password_field :password, :class => "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", :placeholder => 'Password', :required => true , id: "myInput"%>
+        <% if flash[:alert]%>
+          <div class="text-red-700 font-extrabold mt-5"><%= flash[:alert] %></div>
+        <% end %>
+        <p><input type="checkbox" value="" onclick="myFunction()" class="mt-5 mr-2 cursor-pointer">Show Password</p>
+      </div>
+   
+      <div class="inline-block align-baseline font-bold text-sm mb-5  text-blue-900 hover:text-blue-700" href="#">
+        <%= link_to 'Forget Password?', password_reset_path %>
+      </div>
+      
+      <div class="flex items-center justify-center">
+          <%= f.submit "Login", :class => "w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+</script>
