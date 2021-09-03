@@ -1,7 +1,7 @@
   <div class="max-w-7xl mx-auto ">
     <div class=" container my-12 mx-auto px-4 md:px-12 grid grid-cols-1 sm:grid-cols-1  gap-5" >
       <div class=" rounded  text-3xl font-bold py-6 px-4 sm:px-6 lg:px-8 text-yellow-400 " style="background-image:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6));">
-      <img src="https://icons8.com/animated-icons/set/animated%20gif" srcset="https://a.slack-edge.com/6c404/marketing/img/homepage/bold-existing-users/waving-hand.gif 1x, https://a.slack-edge.com/6c404/marketing/img/homepage/bold-existing-users/waving-hand@2x.gif 2x" alt="" height="56" width="52" />
+      <img src="https://icons8.com/animated-icons/set/animated%20gif" class="mb-4" srcset="https://a.slack-edge.com/6c404/marketing/img/homepage/bold-existing-users/waving-hand.gif 1x, https://a.slack-edge.com/6c404/marketing/img/homepage/bold-existing-users/waving-hand@2x.gif 2x" alt="" height="56" width="52" />
         Hello, <%= Current.user.firstname.capitalize%> 
       </div>
     </div>
@@ -35,8 +35,8 @@
     <% if @tasks.length > 0 %>
     
           <div class=" container my-12 mx-auto px-4 md:px-12 grid grid-cols-1 sm:grid-cols-1  gap-5" >
-            <div class=" rounded  text-3xl font-bold py-6 px-4 sm:px-6 lg:px-8 text-white-400 " style="background-image:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6));">
-              <%=image_tag("reminder.png", alt: "Example Image" , height: "56", width: "52")%>
+            <div class=" rounded  text-3xl font-bold py-6 px-4 sm:px-6 lg:px-8 text-yellow-400  " style="background-image:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6));">
+              <%=image_tag("reminder.png", alt: "Example Image" , height: "56", width: "52", class: "mb-4")%>
               Hi <%= Current.user.firstname.capitalize%> , These tasks needs your attention!!!
             </div>
           </div>
