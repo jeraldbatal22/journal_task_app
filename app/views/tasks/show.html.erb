@@ -7,9 +7,9 @@
       <h1>Status</h1>
     </div>
     <div class="text">
-      <h1><%=@task.name%></h1>
-      <h1><%=@task.description%></h1>
-      <h1><%=@task.deadline.strftime("%A %b %e, %Y ")%></h1>
+      <h1 class="text-white"><%=@task.name%></h1>
+      <h1 class="text-white"><%=@task.description%></h1>
+      <h1 class="text-white"><%=@task.deadline.strftime("%A %b %e, %Y ")%></h1>
       <%if @task.completed? %>
         <p class="text-green-500"> Completed </p>
           <% else %>
