@@ -6,7 +6,7 @@
           <!-- Website Logo -->
           <a href="#" class="flex items-center py-4 px-2">
             <img id="drag1" src="<%= asset_path('icon.png') %>"  width="40" height="0" class="mt-3 mr-4 transform duration-200 hover:scale-110 cursor-pointer">
-            <span class="font-semibold text-2xl ">Journal App</span>
+            <span class="font-semibold text-2xl logo">Journal App</span>
           </a>
         </div>
       </div>
@@ -32,7 +32,7 @@
         </div>
       <% end %>
       <!-- Mobile menu button -->
-      <div class="md:hidden flex items-center">
+      <div class="md:hidden flex items-center  mr-3 cursor-pointer">
         <button class="outline-none mobile-menu-button">
         <svg class=" w-6 h-6 text-gray-500 hover:text-blue-500 "
           x-show="!showMenu"
@@ -51,18 +51,18 @@
   </div>
   <!-- mobile menu -->
   <div class="hidden mobile-menu">
-    <ul class="">
+    <ul class="cursor-pointer">
     <% if session[:user_id] %>
-      <%#= link_to dashboard_path do %><li class="block text-sm px-2 py-4 text-yellow-700 bg-yellow-400 font-semibold "> Dashboard</li><%# end %>
-      <%#= link_to journal_new_path do %><li class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300 "> Journal</li><%# end %>
-      <li class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300">Profile</li>
-      <li class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300">User</li>
-      <%#= link_to root_path do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300 "> Home</div><%# end %>
-      <%#= link_to '/', method: :delete do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300 "> Logout</div><%# end %>
+      <%= link_to dashboard_path do %><i class="block text-sm px-2 py-4 text-yellow-700 bg-yellow-400 font-semibold "> Dashboard<% end %></i>
+      <%= link_to journals_new_path do %><i class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300">Journal</i><% end %>
+      <%= link_to tasks_new_path do %><i class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300">Tasks</i><% end %>
+      <%= link_to profile_edit_path do %><li class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300">Profile</li><% end %>
+      <%= link_to root_path do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300 "> Home</div><% end %>
+      <%= link_to '/', method: :delete do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300 "> Logout</div><% end %>
     <% else %>
-      <%#= link_to root_path do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"> Home</div><%# end %>
-      <%#= link_to signin_path do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"> Login</div><%# end %>
-      <%#= link_to signup_path do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"> Signup</div><%# end %>
+      <%= link_to root_path do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"> Home</div><% end %>
+      <%= link_to signin_path do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"> Login</div><% end %>
+      <%= link_to signup_path do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"> Signup</div><% end %>
     <% end %>
     </ul>
   </div>
@@ -75,4 +75,14 @@
   btn.addEventListener("click", () => {
     menu.classList.toggle("hidden");
   });
+
+  function KeepRespo () {
+  var btn_mobile = document.querySelector(".mobile-menu");
+  let w = window.innerWidth;
+  if(w > 768){
+    btn_mobile.style.display = "none"
+  } else {
+    btn_mobile.style.display = "block"
+  }
+}
 </script>

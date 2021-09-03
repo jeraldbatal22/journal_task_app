@@ -13,7 +13,7 @@
           <div class="px-6 py-4">
           <%= link_to "journals/#{journal.id}", method: :delete, data: { confirm: "are you sure?" } do %><button class="fas fa-times text-red-700" style="float:right;"> </button><% end %>
         <div class="font-bold text-xl mb-2 text-yellow-400"> <%=journal.name%></div>
-            <p class="text-gray-400 text-base mt-5">
+            <p class="text-gray-300 text-base mt-5">
               <%=journal.description%>
             </p>
             <h1 class="mt-5"><%#= journal.status === 0 ? "Completed" : "Completed" %></h1>
@@ -21,7 +21,7 @@
             <h1 class="text-yellow-400"><%= journal.tasks.length > 0 ? journal.tasks.length : 'No'%> tasks</h1>
             <h1 class="mt-5"><%= journal.created_at.strftime("%A %b %e, %Y ") %></h1>
           </div>
-            <div class="px-6 pt-4 pb-2">
+            <div class="px-6 pt-4 pb-2 column-button">
          <%= link_to journals_tasks_new_path(journal.id) do %><button class="fas fa-plus inline-block bg-red-200 hover:bg-red-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> Add Tasks</button>  <% end %>
             <%= link_to journals_tasks_path(journal.id) do %><button class="fas fa-eye inline-block bg-blue-200 hover:bg-blue-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> View Journal</button><% end %>
           <%= link_to journals_edit_path(journal.id) do %><button class="fas fa-edit inline-block bg-yellow-200 hover:bg-yellow-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> Edit</button><% end %>
@@ -58,11 +58,11 @@
                         <% end %>
                       </div>
                       <div class="font-bold text-xl mb-2 text-yellow-400"><%#=task.name%> <%=task.name%></div>
-                        <p class="text-gray-700 text-base mt-5"><%=task.description%></p>
+                        <p class="text-gray-300 text-base mt-5"><%=task.description%></p>
                         <br>
                         <h1>Deadline <%=task.deadline.strftime("%A %b %e, %Y ")%></h1>
                       </div>
-                      <div class="px-6 pt-4 pb-2">
+                      <div class="px-6 pt-4 pb-2 column-button">
                         <%= link_to dashboard_tasks_complete_path(task.journal_id, task.id, task.completed ? '1' : '0') do %>
                           <button class="#{task.completed ? fas fa-check : fas fa-times}  inline-block bg-green-300 hover:bg-green-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> 
                             <% if task.completed %>
