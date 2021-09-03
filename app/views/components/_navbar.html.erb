@@ -54,15 +54,15 @@
     <ul class="cursor-pointer">
     <% if session[:user_id] %>
       <%= link_to dashboard_path do %><i class="block text-sm px-2 py-4 text-yellow-700 bg-yellow-400 font-semibold "> Dashboard<% end %></i>
-      <%= link_to journals_new_path do %><i class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300">Journal</i><% end %>
-      <%= link_to tasks_new_path do %><i class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300">Tasks</i><% end %>
-      <%= link_to profile_edit_path do %><li class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300">Profile</li><% end %>
-      <%= link_to root_path do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300 "> Home</div><% end %>
-      <%= link_to '/', method: :delete do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300 "> Logout</div><% end %>
+      <%= link_to journals_new_path do %><i class="block text-sm px-2 py-4 text-white hover:bg-blue-500 transition duration-300">Journal</i><% end %>
+      <%= link_to tasks_new_path do %><i class="block text-sm px-2 py-4 text-white hover:bg-blue-500 transition duration-300">Tasks</i><% end %>
+      <%= link_to profile_edit_path do %><li class="block text-sm px-2 text-white py-4 hover:bg-blue-500 transition duration-300">Profile</li><% end %>
+      <%= link_to root_path do %><div class="block text-sm px-2 py-4 text-white hover:bg-blue-500 transition duration-300 "> Home</div><% end %>
+      <%= link_to '/', method: :delete do %><div class="block text-sm px-2 py-4 text-white hover:bg-blue-500 transition duration-300 "> Logout</div><% end %>
     <% else %>
-      <%= link_to root_path do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"> Home</div><% end %>
-      <%= link_to signin_path do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"> Login</div><% end %>
-      <%= link_to signup_path do %><div class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"> Signup</div><% end %>
+      <%= link_to root_path do %><div class="block text-sm px-2 text-white py-4 hover:bg-blue-500 transition duration-300"> Home</div><% end %>
+      <%= link_to signin_path do %><div class="block text-sm px-2 text-white py-4 hover:bg-blue-500 transition duration-300"> Login</div><% end %>
+      <%= link_to signup_path do %><div class="block text-sm px-2 text-white py-4 hover:bg-blue-500 transition duration-300"> Signup</div><% end %>
     <% end %>
     </ul>
   </div>
