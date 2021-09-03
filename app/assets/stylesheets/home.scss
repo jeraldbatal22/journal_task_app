@@ -198,4 +198,20 @@ section{
   #about_mobile {
     margin-top: 120px ;
   }
+
+  .past {
+    color: red !important;
+  }
+
+  .today {
+    color: orange !important;
+  }
+
+  .pending {
+    color: rgb(52, 52, 240) !important;
+  }
+
+  .show-div {
+    display: none;
+  }
 }

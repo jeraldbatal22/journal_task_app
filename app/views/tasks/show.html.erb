@@ -1,12 +1,12 @@
 <div class="container my-12 mx-auto text-3xl px-4 md:px-12 show-tasks">
   <div class="flex flex-wrap justify-evenly items-center rounded overflow-hidden shadow-lg  p-5 " style=" height:65vh; background-image:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6));">
-    <div class="text-yellow-400 font-bold">
+    <div class="text-yellow-400 font-bold show-div">
       <h1>Title:</h1>
       <h1>Description:</h1>
       <h1>Deadline:</h1>
       <h1>Status</h1>
     </div>
-    <div class="">
+    <div class="text">
       <h1><%=@task.name%></h1>
       <h1><%=@task.description%></h1>
       <h1><%=@task.deadline.strftime("%A %b %e, %Y ")%></h1>
@@ -14,11 +14,11 @@
         <p class="text-green-500"> Completed </p>
           <% else %>
             <% if @task.deadline.today? %>
-              <p class="text-yellow-500">Due Today!</p>
+              <p class="text-yellow-500 today">Due Today!</p>
             <% elsif @task.deadline.past?%>
-              <p class="text-red-500">Overdue!</p>
+              <p class="text-red-500 past ">Overdue!</p>
             <% elsif @task.deadline.future?%>
-              <p class="text-blue-500">Pending</p>
+              <p class="text-blue-500 pending">Pending</p>
             <% end %>
         <% end %>
     </div>
