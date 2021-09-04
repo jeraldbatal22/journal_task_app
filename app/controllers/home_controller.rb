@@ -27,9 +27,12 @@ class HomeController < ApplicationController
 
   def create_task
     @task = Task.create(create_params_task)
+    @task.user_id = Current.user.id
     if @task.save
-      redirect_to dashboard_path, notice: "Successfully add #{@task.name} task"
+      redirect_to journals_tasks_path(@task.journal_id), notice: "Successfully add #{@task.name} task"
     else 
+      # byebug
+      puts 'error'
       render :new_task
     end
   end
@@ -37,7 +40,7 @@ class HomeController < ApplicationController
   private
 
   def create_params_task
-    params.require(:task).permit(:name, :description, :journal_id, :deadline)
+    params.require(:task).permit(:name, :description, :journal_id, :deadline, :user_id)
   end
 
   def statistics(journal_array)

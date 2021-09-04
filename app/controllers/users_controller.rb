@@ -38,21 +38,13 @@ class UsersController < ApplicationController
       flash[:invalid] = "Invalid current password"
       render :edit_password
     end
-    
-    # if Current.user.authenticate(params[:current_password])
-    #   if Current.user.update(user_params)
-    #   redirect_to root_path, notice: "Successfully change password"
-    #   else
-    #     puts 'error'
-    #     render :edit_password
-    #   end
-    # else
-    #   puts user_params
-    #   puts 'error password'
-    #   render :edit_password
-    # end
   end
 
+  def delete_user
+    Current.user.destroy
+    session[:user_id] = nil
+    redirect_to root_path, notice: "Successfully Deleted User"
+  end
   private
 
   def user_params

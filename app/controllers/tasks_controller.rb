@@ -20,7 +20,7 @@ class TasksController < ApplicationController
     @task.user_id = Current.user.id
     puts params[:id]
     if @task.save
-      redirect_to dashboard_path, notice: "Successfully add #{@task.name} task to #{@journal.name} journal"
+      redirect_to journals_tasks_path, notice: "Successfully add #{@task.name} task to #{@journal.name} journal"
     else 
       render :new
     end

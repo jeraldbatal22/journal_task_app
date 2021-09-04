@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   patch '/profile', to:'users#update_profile', as: 'profile_update'
   get '/profile/changepassword', to:'users#edit_password', as: 'password_edit'
   patch '/profile/changepassword', to:'users#update_password', as: 'password_update'
+  delete 'profile', to: 'users#delete_user', as: 'users_delete'
 
   # SIGNIN
   get '/signin', to: 'signin_sessions#new'
@@ -27,7 +28,6 @@ Rails.application.routes.draw do
   get 'tasks/new', to:'home#new_task'
   post 'tasks/new', to:'home#create_task'
   get 'dashboard/:journal_id/tasks/:task_id/:complete', to: 'home#mark_complete', as: 'dashboard_tasks_complete'
-  
 
   # JOURNALS
   get '/journals/new', to: 'journals#new', as: 'journals_new'
