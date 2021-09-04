@@ -12,8 +12,6 @@ Sample project app images
 
 ![image](https://user-images.githubusercontent.com/80327905/131903591-30cf8d0c-b3b9-4527-bf14-86570988887c.png)
 
-![image](https://user-images.githubusercontent.com/80327905/131903525-ec40eff7-d404-4f55-9c04-259c0d973385.png)
-
 ![image](https://user-images.githubusercontent.com/80327905/131903626-c0c02d05-86e3-44bb-8b56-a1649fe1b2d7.png)
 
 ![image](https://user-images.githubusercontent.com/80327905/131903687-c8f69c8e-6137-4d1a-89e8-2b5e4fdbada9.png)
