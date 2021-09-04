@@ -20,5 +20,6 @@ Sample project journal tasks app images
 
 ![image](https://user-images.githubusercontent.com/80327905/131903881-0a3777bd-ab0d-4f31-b328-b10a9a6d0b0c.png)
 
+![image](https://user-images.githubusercontent.com/80327905/132082628-cf0fb43c-3cae-4b5c-83aa-0184318e6ec8.png)
 
 
