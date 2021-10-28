@@ -9,6 +9,7 @@ Things you may want to cover:
 * If you clone this repo do a bundle install after.
 
 See Live https://stock-on-you.herokuapp.com/
+https://journal-task-app.herokuapp.com/
 
 Sample project journal tasks app images
 
