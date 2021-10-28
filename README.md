@@ -8,6 +8,8 @@ Things you may want to cover:
 * Database - POSTGRESQL
 * If you clone this repo do a bundle install after.
 
+Deployment to heroku => journal-task-app.herokuapp.com/
+
 Sample project journal tasks app images
 
 ![image](https://user-images.githubusercontent.com/80327905/131903591-30cf8d0c-b3b9-4527-bf14-86570988887c.png)
